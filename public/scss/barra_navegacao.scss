@@ -1,0 +1,90 @@
+.barra-navegacao {
+    width: 100vw;
+    height: 5rem;
+
+    display: flex;
+    align-items: center;
+
+    padding: 2rem 4rem;
+
+    svg:hover {
+        fill: var(--var-cor-terciaria);
+    }
+
+    .barra-navegacao-area-logo {
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+    }
+
+    .barra-navegacao-menu {
+        display: flex;
+        flex-grow: 1;
+
+        text-align: end;
+        justify-content: end;
+        align-items: center;
+
+        background: inherit;
+        border: none;
+
+        cursor: pointer;
+
+    }
+
+    .barra-navegacao-links {
+        display: flex;
+        flex-grow: 1;
+        justify-content: space-between;
+
+        a:hover {
+            position: relative;
+            top: -5px;
+            transition: top 5ms;
+            color: var(--var-cor-terciaria);
+        }
+    }
+
+}
+
+
+.menu-container {
+    position: fixed;
+    top: 0;
+    width: 25%;
+    height: 100%;
+    background: var(--var-cor-secundaria);
+    padding: 1rem 2rem;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: right .8s;
+
+    ul {
+        list-style: none;
+
+        li {
+            margin: 1rem 0 1rem 2rem;
+        }
+    }
+
+    &.menu-container-oculto {
+        right: -25%;
+    }
+
+    &.menu-container-visivel {
+        right: 0;
+    }
+
+    .menu-button-close {
+        background: inherit;
+        border: none;
+        align-self: flex-end;
+        cursor: pointer;
+    }
+
+    .menu-name-integrantes {
+        margin-bottom: 3rem;
+    }
+}
