@@ -9,6 +9,7 @@
 
     svg:hover {
         fill: var(--var-cor-terciaria);
+        transition: fill .5s;
     }
 
     .barra-navegacao-area-logo {
@@ -39,8 +40,7 @@
 
         a:hover {
             position: relative;
-            top: -5px;
-            transition: top 5ms;
+            transition: color .5s;
             color: var(--var-cor-terciaria);
         }
     }
@@ -60,6 +60,7 @@
     flex-direction: column;
 
     transition: right .8s;
+    z-index: 2;
 
     ul {
         list-style: none;

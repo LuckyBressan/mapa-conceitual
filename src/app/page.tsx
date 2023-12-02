@@ -3,15 +3,15 @@ import 'public/css/barra_navegacao.min.css';
 import 'public/css/card.min.css';
 import BarraNavegacao from './components/barra_navegacao';
 import React from 'react';
-import { Card } from './components/card';
+import { Carrossel } from './components/carrossel';
 
 export default function Home() {
 	return (
 		<main>
 			<div className='container'>
 				<BarraNavegacao />
-				<section>
-					<Card title='teste' image='https://www.adventureclub.com.br/wp-content/uploads/2014/11/peru-1.jpg'/>
+				<section id='section-profissoes'>
+					<Carrossel />
 				</section>
 				<section>
           profissão escolhida
