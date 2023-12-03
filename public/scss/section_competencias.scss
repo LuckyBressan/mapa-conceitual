@@ -13,7 +13,7 @@
     .competencias-area-cards {
         display: grid;
         grid-template-columns: repeat(4, 15rem);
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr auto;
         gap: 4rem;
 
         .competencias-ver-mais {

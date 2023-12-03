@@ -1,35 +1,83 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { ReactNode, useRef } from 'react';
 import { Card } from './card';
 import { ArrowIcon } from '../../../public/icons/carrossel_arrow_icon';
 
-const cards = [
+const cardsImagem = [
 	{
 		title: 'Dev Back-End',
-		image: 'https://img.freepik.com/fotos-gratis/computador-laptop-cinza-ligado_400718-47.jpg?w=1380&t=st=1701481354~exp=1701481954~hmac=4a3565ae658142e2e764de4f21585d450ba6d8fa0980863b07907cb32a119c1d',
+		image: '/images/dev-back-end.jpg',
 	},
 	{
 		title: 'Analista de Software',
-		image: 'https://img.freepik.com/fotos-gratis/homem-trabalhando-a-noite_1098-12798.jpg?w=1380&t=st=1701481594~exp=1701482194~hmac=e86d9b3ba6057ccba7cc86a6ac13f17343e18375239d35253d16a2f6dfe8bf88',
+		image: '/images/analista-software.jpg',
 	},
 	{
 		title: 'Java Developer',
-		image: 'https://img.freepik.com/fotos-gratis/conceito-de-colagem-de-html-e-css-com-pessoa_23-2150062008.jpg?w=1380&t=st=1701481490~exp=1701482090~hmac=78afc1108ff9703ee88cbabedf44300fccb55fdd3003a92825bfc733c73b99d8',
+		image: '/images/java-developer.jpg',
 	},
 	{
 		title: 'Dev Mobile',
-		image: 'https://img.freepik.com/fotos-gratis/representacoes-da-experiencia-do-usuario-e-design-de-interface_23-2150104494.jpg?w=1380&t=st=1701481396~exp=1701481996~hmac=0b8368f020cbc525e529986a746305212917e680f396d0f5242b148b0c7daff1',
+		image: '/images/dev-mobile.jpg',
 	},
 	{
 		title: 'Dev Front-End',
-		image: 'https://img.freepik.com/fotos-gratis/plano-de-fundo-de-programacao-com-pessoa-trabalhando-com-codigos-no-computador_23-2150010130.jpg?w=1380&t=st=1701481697~exp=1701482297~hmac=3fd650c516ea496ac28aa262841c87178e6ddbb0e17ac7bbc7439fc8d08111de',
+		image: '/images/dev-front-end.jpg',
 	}
 ];
 
-export const Carrossel = () => {
+const cardsText = [
+	{
+		title: 'Crescimento contínuo da demanda',
+		text: 'À medida que mais empresas buscam presença online e desenvolvem aplicativos para atender às necessidades dos usuários, a demanda por desenvolvedores front-end permanece alta.',
+	},
+	{
+		title: 'Maior foco na experiência do usuário',
+		text: 'A importância da experiência do usuário (UX) e da interface do usuário (UI) continua a crescer, colocando os desenvolvedores front-end no centro do esforço para criar interfaces intuitivas e agradáveis.',
+	},
+	{
+		title: 'Adoção de tecnologias modernas',
+		text: 'Frameworks e bibliotecas JavaScript, como React, Angular e Vue.js, estão se tornando cada vez mais padrão, e os desenvolvedores que dominam essas tecnologias podem ter uma vantagem significativa.',
+	},
+	{
+		title: 'Mobile-First e Responsividade',
+		text: 'Com o aumento do uso de dispositivos móveis, a criação de interfaces responsivas e otimizadas para dispositivos móveis é uma prioridade. Desenvolvedores front-end que compreendem e podem implementar designs "mobile-first" estão em alta demanda.',
+	},
+	{
+		title: 'Progressive Web Apps (PWAs)',
+		text: 'PWAs são aplicativos que combinam a melhor experiência de navegadores com a funcionalidade de aplicativos móveis. Desenvolvedores front-end que podem construir PWAs podem estar bem posicionados para o futuro.',
+	},
+	{
+		title: 'Integração com AR e VR',
+		text: 'À medida que AR e VR se tornam mais presentes em diversos setores, a integração dessas tecnologias nas interfaces web pode se tornar uma área de crescimento para desenvolvedores front-end.',
+	},
+	{
+		title: 'Ênfase na Segurança',
+		text: 'Com o aumento das preocupações com segurança na web, os desenvolvedores front-end podem se beneficiar ao entender e implementar práticas seguras, especialmente ao lidar com dados sensíveis do usuário.',
+	},
+	{
+		title: 'Automação e Ferramentas de Desenvolvimento',
+		text: 'A automação de tarefas rotineiras e o uso eficiente de ferramentas de desenvolvimento são habilidades cada vez mais valorizadas para aumentar a produtividade.',
+	},
+	{
+
+		title: 'Evolução das Linguagens e Ferramentas',
+		text: 'Como a tecnologia evolui, novas linguagens e ferramentas podem surgir. Estar aberto a aprender novas tecnologias e adaptar-se rapidamente é uma habilidade crucial.',
+	},
+	{
+		title: 'Trabalho Remoto e Colaboração Global',
+		text: 'A capacidade de colaborar efetivamente em equipes remotas é uma habilidade valiosa, especialmente considerando as mudanças no cenário de trabalho global.',
+	}
+];
+
+interface CarrosselProps {
+	cardImagem: true | false;
+}
+
+export const Carrossel = (Carrossel: CarrosselProps) => {
 	let cont = 2;
-	let translate = 8;
+	let translate = 0;
 	const oAreaCards = useRef(null);
 
 	/**
@@ -62,20 +110,78 @@ export const Carrossel = () => {
 	}
 
 	const nextCard = () => {
-		if(translate > -72) {
-			translate -= 20;
-			alteraCardAtual(true, translate);
+		let iTranslateMaximo = -72;
+		if(!Carrossel.cardImagem) {
+			iTranslateMaximo = -86;
+			if(translate > iTranslateMaximo) {
+				if(translate == 0) {
+					translate -= 6;
+				}
+				else{
+					translate -= 10;
+				}
+				alteraCardAtual(true, translate);
+			}
+		}
+		else{
+			if(translate > iTranslateMaximo) {
+				translate -= 20;
+				alteraCardAtual(true, translate);
+			}
 		}
 	};
 
 	const previousCard = () => {
-		if(translate < 8) {
-			translate += 20;
-			alteraCardAtual(false, translate);
+		let iTranslateMinimo = 0;
+		if(!Carrossel.cardImagem) {
+			iTranslateMinimo = 0;
+			if(translate < iTranslateMinimo) {
+				if(translate == -6) {
+					translate = 0;
+				}
+				else{
+					translate += 10;
+				}
+				alteraCardAtual(false, translate);
+			}
+		}
+		else{
+			if(translate < iTranslateMinimo) {
+				translate += 20;
+				alteraCardAtual(false, translate);
+			}
 		}
 	};
 
-	return(
+	const getCards = () => {
+		const CardsRetorno: Array<ReactNode> = [];
+		if(Carrossel.cardImagem) {
+			cardsImagem.map(card => {
+				let sClass = '';
+				if(cont == 2) {
+					sClass = 'card-focus';
+				}
+				const ComponenteCard = <Card key={card.title} nameClass={sClass} title={card.title} image={card.image} column={cont} text={''} />;
+				cont += 3;
+				CardsRetorno.push(ComponenteCard);
+			});
+		}
+		else{
+			cardsText.map(card => {
+				let sClass = 'card-futuro ';
+				if(cont == 2) {
+					sClass += 'card-focus';
+				}
+				const ComponenteCard = <Card key={card.title} nameClass={sClass} title={card.title} image={card.image} column={cont} text={card.text} />;
+				cont += 3;
+				CardsRetorno.push(ComponenteCard);
+			});
+		}
+		return CardsRetorno;
+	};
+
+
+	return (
 		<div className="carrossel-container">
 			<div className='carrossel-area-arrows'>
 				<span className='carrossel-arrow-container'>
@@ -85,17 +191,8 @@ export const Carrossel = () => {
 					<button className='carrossel-arrow carrossel-arrow-right' onClick={nextCard}><ArrowIcon width={'5em'} height={'5em'} fill='white' /></button>
 				</span>
 			</div>
-			<div className='carrossel-area-cards' ref={oAreaCards}>
-				{cards.map(card => {
-					let sClass = '';
-					if(cont == 2) {
-						sClass = 'card-focus';
-					}
-					const ComponenteCard = <Card key={card.title} nameClass={sClass} title={card.title} image={card.image} column={cont} />;
-					cont += 3;
-					return ComponenteCard;
-				})}
-
+			<div className={`carrossel-area-cards ${!Carrossel.cardImagem ? ' carrossel-area-cards-futuro' : ''}`} ref={oAreaCards}>
+				{getCards()}
 			</div>
 		</div>
 	);

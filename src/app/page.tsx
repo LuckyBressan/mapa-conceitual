@@ -14,6 +14,7 @@ import React from 'react';
 import { Carrossel } from './components/carrossel';
 import { Sobre } from './components/section_sobre';
 import { SectionCompetencias } from './components/section_competencias';
+import { SectionFuturo } from './components/section_futuro';
 
 export default function Home() {
 	return (
@@ -21,7 +22,7 @@ export default function Home() {
 			<div className='container'>
 				<BarraNavegacao />
 				<section id='section-profissoes'>
-					<Carrossel />
+					<Carrossel cardImagem={true}/>
 				</section>
 				<section id='section-sobre'>
 					<Sobre />
@@ -30,11 +31,11 @@ export default function Home() {
 					<SectionCompetencias />
 				</section>
 				<section id='section-futuro'>
-          possibilidades futuras
+					<SectionFuturo />
 				</section>
-				<footer>
-          footer
-				</footer>
+				<section>
+					<Carrossel cardImagem={false}/>
+				</section>
 			</div>
 		</main>
 	);

@@ -10,7 +10,8 @@
         padding-right: 3rem;
 
         .profissao-text {
-            line-height: 2rem;
+            line-height: 3rem;
+            font-size: 1.5rem;
         }
 
         b {
@@ -21,6 +22,10 @@
     .profissao-area-imagem {
         flex-grow: 1;
         width: 50%;
+        position: relative;
+        border: 1px solid white;
+        border-radius: 0rem 2rem 0rem 2rem;
+        overflow: hidden;
 
         img {
             width: 100%;

@@ -13,7 +13,7 @@ export const Sobre = () => {
 				</div>
 			</div>
 			<div className='profissao-area-imagem'>
-				<img src="https://img.freepik.com/fotos-gratis/plano-de-fundo-de-programacao-com-pessoa-trabalhando-com-codigos-no-computador_23-2150010130.jpg?w=1380&1481697~exp=1701482297~hmac=3fd650c516ea496ac28aa262841c87178e6ddbb0e17ac7bbc7439fc8d08111de" />
+				<img src="/images/sobre-front-end.jpg" />
 			</div>
 		</div>
 	);

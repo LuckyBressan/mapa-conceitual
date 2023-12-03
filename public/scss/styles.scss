@@ -18,3 +18,31 @@ section {
 #section-sobre {
     background: var(--var-cor-primaria);
 }
+
+#section-futuro {
+    background: var(--var-cor-primaria);
+
+    .futuro-container {
+        display: flex;
+        align-items: center;
+
+
+        b {
+            color: var(--var-cor-terciaria);
+        }
+
+        .futuro-title {
+            flex-grow: 1;
+            width: 50%;
+            font-size: 4rem;
+            text-transform: uppercase;
+        }
+
+        .futuro-text {
+            flex-grow: 1;
+            width: 50%;
+            font-size: 1.8rem;
+            line-height: 5rem
+        }
+    }
+}
