@@ -5,12 +5,13 @@ interface CardProps {
     image: string;
     title: string;
 	column: number;
+	nameClass: string
 }
 
 export const Card = (card: CardProps) => {
-	
+
 	return(
-		<div className='card-container' style={{gridColumn: `${card.column}`}}>
+		<div className={`card-container ${card.nameClass}`} style={{gridColumn: `${card.column}`}}>
 			<div className='card-area-geral'>
 				<img src={`${card.image}`} className='card-image' />
 				<div className='card-area-text'>

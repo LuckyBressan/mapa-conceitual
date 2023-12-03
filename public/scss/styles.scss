@@ -7,10 +7,14 @@ body {
 }
 
 section {
-    padding: 0rem 4rem;
-    margin: 2rem 0  2rem 0;
+    padding: 5rem 4rem;
+    margin: 5rem 0;
 }
 
 .container {
     width: 100vw;
+}
+
+#section-sobre {
+    background: var(--var-cor-primaria);
 }

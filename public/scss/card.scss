@@ -2,6 +2,17 @@
     width: 50rem;
     height: 30rem;
     flex-grow: 1;
+    opacity: 0.3;
+    transition: opacity 0.5s;
+
+    &.card-focus {
+        opacity: 1;
+
+        .card-area-geral {
+            border: 1px solid var(--var-cor-terciaria);
+            transition: border .5s;
+        }
+    }
 
     .card-area-geral {
         position: relative;
@@ -21,7 +32,7 @@
             width: 100%;
             height: 100%;
 
-            filter: brightness(60%);
+            filter: brightness(50%);
         }
 
         .card-area-text {
@@ -132,11 +143,13 @@
     }
 
     .carrossel-area-cards {
-        width: calc(50rem * 5);
+        // 60 = 5 + 50 + 5
+        //50 tamanho do card e 5 colunas de espaçamento
+        width: calc(60rem * 5);
         display: grid;
         grid-template-columns: repeat(5, 5rem 1fr 5rem);
         grid-template-rows: 1fr;
-        transform: translateX(10%);
+        transform: translateX(8%);
         transition: transform 0.8s;
     }
 }

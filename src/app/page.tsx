@@ -1,9 +1,19 @@
+//Geral
 import 'public/css/styles.min.css';
+//Componentes
 import 'public/css/barra_navegacao.min.css';
 import 'public/css/card.min.css';
+import 'public/css/card_competencia.min.css';
+//Sections
+import 'public/css/sobre.min.css';
+import 'public/css/section_competencias.min.css';
+
+
 import BarraNavegacao from './components/barra_navegacao';
 import React from 'react';
 import { Carrossel } from './components/carrossel';
+import { Sobre } from './components/section_sobre';
+import { SectionCompetencias } from './components/section_competencias';
 
 export default function Home() {
 	return (
@@ -13,13 +23,13 @@ export default function Home() {
 				<section id='section-profissoes'>
 					<Carrossel />
 				</section>
-				<section>
-          profissão escolhida
+				<section id='section-sobre'>
+					<Sobre />
 				</section>
-				<section>
-          competências
+				<section id='section-competencias'>
+					<SectionCompetencias />
 				</section>
-				<section>
+				<section id='section-futuro'>
           possibilidades futuras
 				</section>
 				<footer>

@@ -1,0 +1,36 @@
+.competencias-area {
+    display: grid;
+    justify-content: center;
+
+    .competencias-area-title {
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 5rem;
+        letter-spacing: 5px;
+        font-size: 25px;
+    }
+
+    .competencias-area-cards {
+        display: grid;
+        grid-template-columns: repeat(4, 15rem);
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 4rem;
+
+        .competencias-ver-mais {
+            display: flex;
+            grid-column: 1 / span 4;
+            width: 100%;
+            height: 3rem;
+            border: 1px solid white;
+            border-radius: 0 0 1rem 1rem;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.1)
+            }
+
+        }
+    }
+}
