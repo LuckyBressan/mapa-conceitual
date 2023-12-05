@@ -78,7 +78,7 @@ interface CarrosselProps {
 export const Carrossel = (Carrossel: CarrosselProps) => {
 	let cont = 2;
 	let translate = 0;
-	const oAreaCards = useRef(null);
+	const oAreaCards = useRef<HTMLDivElement>(null);
 
 	/**
 	 * Altera o card atual
@@ -86,7 +86,11 @@ export const Carrossel = (Carrossel: CarrosselProps) => {
 	 * @param translate
 	 */
 	function alteraCardAtual(bNextCard: boolean, translate: number) {
-		const aCards: Array<Element> = [].slice.call(oAreaCards.current.children);
+		let aCards: Array<Element>;
+		aCards = [];
+		if(oAreaCards.current) {
+			aCards = [].slice.call(oAreaCards.current.children);
+		}
 
 		//Pega o card atual entre os filhos do área card
 		const oCardAtual: Array<Element> = aCards.filter((oCard: Element) => {
@@ -97,16 +101,19 @@ export const Carrossel = (Carrossel: CarrosselProps) => {
 		});
 
 		if(bNextCard) {
+
 			//Adiciona a classe de foco para o próximo elemento da hierarquia
-			oCardAtual[0].nextSibling.classList.add('card-focus');
+			oCardAtual[0]?.nextElementSibling?.classList.add('card-focus');
 		}
 		else{
 			//Adiciona a classe de foco para o elemento anterior da hierarquia
-			oCardAtual[0].previousSibling.classList.add('card-focus');
+			oCardAtual[0]?.previousElementSibling?.classList.add('card-focus');
 		}
 
 		//Move a area dos cards horizontalmente para que o próximo card possa ficar no centro
-		oAreaCards.current.style.transform = `translateX(${translate}%)`;
+		if(oAreaCards.current) {
+			oAreaCards.current.style.transform = `translateX(${translate}%)`;
+		}
 	}
 
 	const nextCard = () => {
