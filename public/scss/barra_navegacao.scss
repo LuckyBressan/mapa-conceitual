@@ -85,7 +85,18 @@
         cursor: pointer;
     }
 
-    .menu-name-integrantes {
+    div {
         margin-bottom: 3rem;
     }
+
+    .menu-area-links {
+        margin-top: 1rem;
+        svg {
+            width: 2em;
+            height: 2em;
+            margin-right: 1rem;
+            fill: var(--var-cor-terciaria);
+        }
+    }
+
 }
